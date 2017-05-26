@@ -6,12 +6,7 @@
 <script>
     import mTabbarItem from './tabbar-item';
     export default {
-        props:["value"],
-        created(){
-            this.$on("input",function(id){
-                console.log("id is " + id)
-            })
-        }
+        props:["value"]
     }
 </script>
 <style lang="less">
