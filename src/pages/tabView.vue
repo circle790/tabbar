@@ -74,7 +74,7 @@
         data(){
             return {
                 tabConfig:{
-                    isActive: 1,
+                    isActive: 0,
                     currentView: 'tab01',
                     tabs: [
                         {

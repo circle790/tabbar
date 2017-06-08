@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "mint-ui": "^2.1.1",

@@ -32,8 +32,8 @@
 </template>
 
 <script>
-  import mTabbar from '../components/tabbar'
-  import mTabbarItem from '../components/tabbar-item'
+  import mTabbar from '../components/tabbar/tabbar'
+  import mTabbarItem from '../components/tabbar/tabbar-item'
   export default {
     name: 'index',
     components: {
