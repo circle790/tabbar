@@ -1,7 +1,7 @@
 'use strict';
 import $ from 'jquery'
 import tips from './tips'
-
+import urlMap from './ajaxMap'
 // 设备信息
 let device = (() => {
     let ua = navigator.userAgent.toLowerCase();
@@ -22,11 +22,34 @@ let validateRule = {
     'identityCard':'isReg:(^\\d{15}$)|(^\\d{18}$)|(^\\d{17}(\\d|X|x)$)'
 }
 
+let ajax = function (arg) {
+    return $.ajax({
+        type: arg.type || 'GET',
+        url: arg.url,
+        async: arg.async && !0,
+        dataType: arg.dataType || "json",
+        data: arg.data,
+        beforeSend: arg.beforeSend,
+        success: function (res) {
+            //数据处理
+            arg.success && arg.success(res);
+        },
+        timeout: 1000,
+        error: function (xhr, errMsg, error) {
+            arg.error && arg.error(xhr, errMsg, error);
+        },
+        complete: function (xhr, status) {
+            arg.complete && arg.complete(xhr, status);
+        }
+    })
+};
 
 
 export default {
     device,
     validateRule,
+    ajax,
+    urlMap,
     confirm(opts){
       tips.confirm(opts)
     },

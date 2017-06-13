@@ -59,8 +59,8 @@
                 base.toast({
                     iconClass: "yy-icon",
                     customClass: "yy-set",
-                    message : "请稍后...",
-                    duration : 1800,
+                    message : "toast...",
+                    duration : 3000,
                     over: function(){
                     	  console.log("完成了")
                     }

@@ -25,7 +25,7 @@
             scroll: function(event){
                 if (event.target.scrollTop >= event.target.scrollHeight - event.target.clientHeight && this.current < this.totalPage && !this.isLoading) {
                     this.current++;
-                    this.$emit('update:isLoading', true)
+                    this.$parent.isLoading = true;
                     this.callback(this.current);
                 }
             }

@@ -1,10 +1,8 @@
-
-
 <template>
     <section id="inviteList" class="page">
         <article class="viewport">
             <load-data :callback="loadData" :current-page="currentPage" :total-page="totalPage"
-                       :total-count="totalCount" :is-loading="isLoading" @update:is-loading="val => isLoading = val" no-data-tips="暂无成功推荐的好友哦">
+                       :total-count="totalCount" :is-loading.sync="isLoading" no-data-tips="暂无成功推荐的好友哦">
                 <div class="ui-table">
                     <div class="tit">
                         <div style="width:1.8rem;text-align:left;">注册时间</div>
@@ -25,6 +23,48 @@
         </article>
     </section>
 </template>
+
+<script>
+    import base from '../assets/script/base';
+    import loadData from '../components/loadData/index.vue';
+    export default{
+        data(){
+            return {
+                list: [],
+                currentPage:1,
+                totalPage:4,
+                totalCount:1,
+                isLoading: false
+            }
+        },
+        components: {
+            loadData
+        },
+        methods: {
+            loadData(currentPage){
+                let _this = this;
+                base.ajax({
+                    url: base.urlMap.inviteList.url,
+                    type: "get",
+                    data: {
+                        currentPage: currentPage,
+                        pageSize: 20,
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        _this.list = _this.list.concat(data.data.list);
+                        _this.currentPage = data.data.currentPage;
+                        _this.totalPage = data.data.pages;
+                        _this.totalCount = data.data.total;
+                        _this.isLoading = false;
+                    }
+                })
+            }
+        }
+    }
+</script>
+
+
 <style lang="less">
     input::-webkit-input-placeholder{
         color:#ccc
@@ -32,6 +72,20 @@
     #inviteList {
         .viewport {
             background-color: #f6f6f6;
+            .list {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                overflow-y: scroll;
+                height: auto;
+                -webkit-overflow-scrolling: touch;
+                overflow-scrolling: touch;
+                max-width: 720px;
+                margin: 0 auto;
+                font-size: .32rem;
+            }
         }
         .ui-table{
             margin-top: .2rem;
@@ -60,225 +114,3 @@
 
     }
 </style>
-<script>
-    import base from '../assets/script/base';
-    import loadData from '../components/loadData/index.vue';
-    export default{
-        data(){
-            return {
-                currentPage:1,
-                totalPage:4,
-                totalCount:1,
-                isLoading: false,
-                list: [{
-                    regTime:"2017-05-12",
-                    phone:15822546846,
-                    tenantCount:1,
-                    inviteCount:"SADKJD"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:2,
-                        inviteCount:"FSDAFF"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:3,
-                        inviteCount:"FSAFDA"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:4,
-                        inviteCount:"MKONIJ"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:5,
-                        inviteCount:"FDSADF"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:6,
-                        inviteCount:"FSDAFG"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:1,
-                        inviteCount:"SADKJD"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:2,
-                        inviteCount:"FSDAFF"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:3,
-                        inviteCount:"FSAFDA"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:4,
-                        inviteCount:"MKONIJ"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:5,
-                        inviteCount:"FDSADF"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:6,
-                        inviteCount:"FSDAFG"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:1,
-                        inviteCount:"SADKJD"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:2,
-                        inviteCount:"FSDAFF"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:3,
-                        inviteCount:"FSAFDA"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:4,
-                        inviteCount:"MKONIJ"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:5,
-                        inviteCount:"FDSADF"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:6,
-                        inviteCount:"FSDAFG"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:1,
-                        inviteCount:"SADKJD"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:2,
-                        inviteCount:"FSDAFF"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:3,
-                        inviteCount:"FSAFDA"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:4,
-                        inviteCount:"MKONIJ"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:5,
-                        inviteCount:"FDSADF"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:6,
-                        inviteCount:"FSDAFG"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:1,
-                        inviteCount:"SADKJD"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:2,
-                        inviteCount:"FSDAFF"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:3,
-                        inviteCount:"FSAFDA"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:4,
-                        inviteCount:"MKONIJ"
-                    },
-                    {
-                        regTime:"2017-05-12",
-                        phone:15822546846,
-                        tenantCount:5,
-                        inviteCount:"FDSADF"
-                    },
-                    {
-                        regTime:"2017-05-22",
-                        phone:15822265465,
-                        tenantCount:10,
-                        inviteCount:"FSDAFG"
-                    }]
-            }
-        },
-        components: {
-          loadData
-        },
-        methods: {
-//            loadData(currentPage){
-//                let _this = this;
-//                base.ajax({
-//                    url: "",
-//                    type: "get",
-//                    data: {
-//                        currentPage: currentPage,
-//                        pageSize: 20,
-//                        service: base.urlMap.inviteList.service
-//                    },
-//                    dataType: "json",
-//                    success: function (data) {
-//                        _this.list = _this.list.concat(data.data.list);
-//                        _this.currentPage = data.data.currentPage;
-//                        _this.totalPage = data.data.pages;
-//                        _this.totalCount = data.data.total;
-//                        _this.isLoading = false;
-//                    }
-//                })
-//            }
-        },
-        created() {
-            $('#pageLoading').hide();
-        }
-    }
-</script>
