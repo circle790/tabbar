@@ -1,5 +1,5 @@
 <template>
-    <div style="text-align:center;">
+    <div class="popTest" style="text-align:center;">
         <p><br><br></p>
         <p>
             <button @click="showConfirm">弹出confirm</button>
@@ -31,7 +31,7 @@
                 base.confirm({
                     content: '密码不正确，找回或重置密码？',
                     cancelText: '取消',
-                    confirmText: `<a href="/test/inviteList" style="display: block;">找回密码</a>`
+                    confirmText: `<a href="#" style="display: block;">找回密码</a>`
                 })
             },
             showNotice: function () {
@@ -42,9 +42,9 @@
                         如何解锁？
                         <br>
                         1、账号3小时后自动解锁<br>
-                        2、拨打钱庄客服400-0455-360
+                        2、拨打客服热线400-880-8820
                         进行解锁<br>
-                        3、找回密码解锁，<a href="/inviteList" style="display: inline;color:#007aff">马上找回</a>
+                        3、找回密码解锁，<a href="#" style="display: inline;color:#007aff">马上找回</a>
                       `,
                     isShow: true
                 })
@@ -66,15 +66,12 @@
                     }
                 })
             }
-        },
-        created(){
-            $('#pageLoading').hide();
         }
     }
 </script>
 
 <style lang="less">
-    button {
+    .popTest button {
         width: 120px;
         height: 36px;
         font-size: 0.28rem;

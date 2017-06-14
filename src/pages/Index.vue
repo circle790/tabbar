@@ -79,10 +79,10 @@
 </script>
 
 
-<style lang="less">
+<style lang="less" scoped>
 .viewcont{
     text-align: center;
-    font-size: 24px;
-    padding-top:20px;
+    font-size: 0.28rem;
+    padding-top:0.3rem;
 }
 </style>

@@ -40,14 +40,7 @@ export default {
                 isShow: true
             });
         } else {
-            toast.toastConfig = Object.assign(toast.toastConfig, {
-                message: opts.message || toast.toastConfig.message,
-                iconClass: opts.iconClass || "",
-                customClass: opts.customClass || "",
-                duration: opts.duration || toast.toastConfig.duration,
-                over: opts.over || null,
-                isShow: true
-            });
+            toast.toastConfig = Object.assign(toast.toastConfig, opts, {isShow: true});
         }
     }
 }
