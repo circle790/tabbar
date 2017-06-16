@@ -30,13 +30,11 @@
             showConfirm: function () {
                 base.confirm({
                     content: '密码不正确，找回或重置密码？',
-                    cancelText: '取消',
                     confirmText: `<a href="#" style="display: block;">找回密码</a>`
                 })
             },
             showNotice: function () {
                 base.notice({
-                    type: 'notice',
                     title: '账号已锁定',
                     content: `
                         如何解锁？

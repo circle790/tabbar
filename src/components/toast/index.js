@@ -4,7 +4,7 @@ import toastTpl from './toastTpl.vue';
 let toast = new Vue({
     el: 'toast',
     data: {
-        toastConfig: {
+        config: {
             isShow: false,
             iconClass: '',
             customClass: '',
@@ -17,56 +17,56 @@ let toast = new Vue({
     computed: {
         isShow: {
             get(){
-                return this.toastConfig.isShow;
+                return this.config.isShow;
             },
             set(val){
-                this.toastConfig.isShow = val;
+                this.config.isShow = val;
             }
         },
         iconClass: {
             get(){
-                return this.toastConfig.iconClass;
+                return this.config.iconClass;
             },
             set(val){
-                this.toastConfig.iconClass = val;
+                this.config.iconClass = val;
             }
         },
         customClass: {
             get(){
-                return this.toastConfig.customClass;
+                return this.config.customClass;
             },
             set(val){
-                this.toastConfig.customClass = val;
+                this.config.customClass = val;
             }
         },
         message: {
             get(){
-                return this.toastConfig.message;
+                return this.config.message;
             },
             set(val){
-                this.toastConfig.message = val;
+                this.config.message = val;
             }
         },
         duration: {
             get(){
-                return this.toastConfig.duration;
+                return this.config.duration;
             },
             set(val){
-                this.toastConfig.duration = val;
+                this.config.duration = val;
             }
         },
         over: {
             get(){
-                return this.toastConfig.over;
+                return this.config.over;
             },
             set(val){
-                this.toastConfig.over = val;
+                this.config.over = val;
             }
         }
     },
-    template: `<toast v-if="toastConfig.isShow" is="toast-tpl" :message="toastConfig.message"
-            :icon-class="toastConfig.iconClass" :custom-class="toastConfig.customClass"
-            :duration="toastConfig.duration" :over="toastConfig.over"></toast>`
+    template: `<toast v-if="config.isShow" is="toast-tpl" :message="config.message"
+            :icon-class="config.iconClass" :custom-class="config.customClass"
+            :duration="config.duration" :over="config.over"></toast>`
 });
 
 

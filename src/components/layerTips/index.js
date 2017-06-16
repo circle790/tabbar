@@ -6,27 +6,21 @@ import confirm from './confirm.vue';
 let layerTips = new Vue({
     el: 'layer-tips',
     data: {
-        layerTipsConfig: {
+        config: {
             isShow: false,
             type: 'alert',
             title: '',
             content: '',
-            confirmText: '',
-            cancelText: ''
+            confirmText: '确认',
+            cancelText: '取消',
+            confirmCallback: function(){},
+            cancelCallback: function(){}
         }
     },
     components: {
         alert, notice, confirm
     },
     computed: {
-        config: {
-            get(){
-                return this.layerTipsConfig;
-            },
-            set(val){
-                this.layerTipsConfig = val;
-            }
-        },
         isShow: {
             get(){
                 return this.config.isShow;
@@ -59,7 +53,7 @@ let layerTips = new Vue({
                 this.config.content = val;
             }
         },
-        confirm: {
+        confirmText: {
             get(){
                 return this.config.confirmText;
             },
@@ -67,17 +61,33 @@ let layerTips = new Vue({
                 this.config.confirmText = val;
             }
         },
-        cancel: {
+        cancelText: {
             get(){
                 return this.config.cancelText;
             },
             set(val){
                 this.config.cancelText = val;
             }
+        },
+        confirmCallback: {
+            get(){
+                return this.config.confirmCallback;
+            },
+            set(val){
+                this.config.confirmCallback = val;
+            }
+        },
+        cancelCallback: {
+            get(){
+                return this.config.cancelCallback;
+            },
+            set(val){
+                this.config.cancelCallback = val;
+            }
         }
     },
-    template: `<layer-tips v-if="layerTipsConfig.isShow" :is="layerTipsConfig.type" :title="layerTipsConfig.title" :content="layerTipsConfig.content"
-                :cancel="layerTipsConfig.cancelText" :confirm="layerTipsConfig.confirmText" :confirm-callback="layerTipsConfig.confirmCallback"
-                :cancel-callback="layerTipsConfig.cancelCallback"></layer-tips>`
+    template: `<layer-tips v-if="config.isShow" :is="config.type" :title="config.title" :content="config.content"
+                :cancel="config.cancelText" :confirm="config.confirmText" :confirm-callback="config.confirmCallback"
+                :cancel-callback="config.cancelCallback"></layer-tips>`
 });
 export default layerTips;

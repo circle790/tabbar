@@ -3,14 +3,14 @@ import toast from '../../components/toast';
 
 export default {
     confirm(opts){
-        layerTips.config = Object.assign(opts, {
+        layerTips.config = Object.assign(layerTips.config, opts, {
             type: 'confirm',
             isShow: true
         });
     },
 
     notice(opts){
-        layerTips.config = Object.assign(opts, {
+        layerTips.config = Object.assign(layerTips.config, opts, {
             type: 'notice',
             isShow: true
         });
@@ -18,16 +18,16 @@ export default {
 
     alert(opts, fn){
         if (typeof opts === 'string') {
-            layerTips.config = {
+            layerTips.config = Object.assign(layerTips.config, {
                 type: 'alert',
                 isShow: true,
                 content: opts,
                 confirmCallback: function () {
                     fn && fn();
                 }
-            };
+            });
         } else {
-            layerTips.config = Object.assign(opts, {
+            layerTips.config = Object.assign(layerTips.config, opts, {
                 type: 'alert',
                 isShow: true
             });
@@ -35,12 +35,12 @@ export default {
     },
     toast(opts){
         if(typeof opts == 'string'){
-            toast.toastConfig = Object.assign(toast.toastConfig, {
+            toast.config = Object.assign(toast.config, {
                 message: opts,
                 isShow: true
             });
         } else {
-            toast.toastConfig = Object.assign(toast.toastConfig, opts, {isShow: true});
+            toast.config = Object.assign(toast.config, opts, {isShow: true});
         }
     }
 }

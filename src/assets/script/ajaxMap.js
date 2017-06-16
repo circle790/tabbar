@@ -2,6 +2,7 @@
 import urlMap from './urlMap';
 import Mock from 'mockjs';
 
+
 Mock.mock(/\/getVerify/, {
   "resultData": {
     success: true
@@ -24,186 +25,12 @@ Mock.mock(/\/inviteList/, {
     currentPage: 1,
     pages: 4,
     total: 4,
-    list: [
+    "list|30": [
       {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 1,
-        inviteCount: "SADKJD"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 2,
-        inviteCount: "FSDAFF"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 3,
-        inviteCount: "FSAFDA"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 4,
-        inviteCount: "MKONIJ"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 5,
-        inviteCount: "FDSADF"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 6,
-        inviteCount: "FSDAFG"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 1,
-        inviteCount: "SADKJD"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 2,
-        inviteCount: "FSDAFF"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 3,
-        inviteCount: "FSAFDA"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 4,
-        inviteCount: "MKONIJ"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 5,
-        inviteCount: "FDSADF"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 6,
-        inviteCount: "FSDAFG"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 1,
-        inviteCount: "SADKJD"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 2,
-        inviteCount: "FSDAFF"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 3,
-        inviteCount: "FSAFDA"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 4,
-        inviteCount: "MKONIJ"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 5,
-        inviteCount: "FDSADF"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 6,
-        inviteCount: "FSDAFG"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 1,
-        inviteCount: "SADKJD"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 2,
-        inviteCount: "FSDAFF"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 3,
-        inviteCount: "FSAFDA"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 4,
-        inviteCount: "MKONIJ"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 5,
-        inviteCount: "FDSADF"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 6,
-        inviteCount: "FSDAFG"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 1,
-        inviteCount: "SADKJD"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 2,
-        inviteCount: "FSDAFF"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 3,
-        inviteCount: "FSAFDA"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 4,
-        inviteCount: "MKONIJ"
-      },
-      {
-        regTime: "2017-05-12",
-        phone: 15822546846,
-        tenantCount: 5,
-        inviteCount: "FDSADF"
-      },
-      {
-        regTime: "2017-05-22",
-        phone: 15822265465,
-        tenantCount: 10,
-        inviteCount: "FSDAFG"
+        regTime: Mock.mock('@date'),
+        phone: /^((13[0-9]{9})|(14[0-9]{9})|(15[0-35-9][0-9]{8})|(17[0-9]{9})|(18[0-9]{9}))$/,
+        "tenantCount|1-999": 100,
+        inviteCount: /[0-9A-Za-z]{6}/
       }
     ]
   }
