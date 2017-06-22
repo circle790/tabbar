@@ -78,19 +78,19 @@
                     currentView: 'tab01',
                     tabs: [
                         {
-                            label: '首页',
+                            label: '你的',
                             icon: '01',
                             iconActive: 'a1',
                             view: "tab01"
                         },
                         {
-                            label: '关于',
+                            label: '我的',
                             icon: '02',
                             iconActive: 'a2',
                             view: "tab02"
                         },
                         {
-                            label: '我的',
+                            label: '他的',
                             icon: '03',
                             iconActive: 'a3',
                             view: "tab03"
@@ -103,19 +103,19 @@
             tab01: {
                 template:`
                     <div class="viewcont">
-                        <p>首页内容</p>
+                        <p>你的内容</p>
                     </div>`
             },
             tab02: {
                 template:`
                     <div class="viewcont">
-                        <p>这是关于</p>
+                        <p>我的关于</p>
                     </div>`
             },
             tab03: {
                 template:`
                     <div class="viewcont">
-                        <p>个人资料</p>
+                        <p>他的资料</p>
                     </div>`
             }
         },

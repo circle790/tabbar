@@ -4,6 +4,8 @@ import Index from '../pages/Index'
 import tabView from '../pages/tabView'
 import popTest from '../pages/popTest'
 import inviteList from '../pages/inviteList'
+import pullRefresh from '../pages/pullRefresh'
+import banner from '../pages/banner.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +30,16 @@ export default new Router({
             path: '/inviteList',
             name: 'inviteList',
             component: inviteList
+        },
+        {
+            path: '/pullRefresh',
+            name: 'pullRefresh',
+            component: pullRefresh
+        },
+        {
+            path: '/banner',
+            name: 'banner',
+            component: banner
         }
     ]
 })

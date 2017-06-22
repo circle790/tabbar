@@ -38,18 +38,19 @@
 .m-tabbar-item{
     flex: 1;
     text-align: center;
+    padding-top:0.06rem;
     .m-tabbar-item-icon{
         display: block;
-        padding-top: 2px;
+        padding-bottom:0.06rem;
         img{
-            width: 28px;
-            height: 28px;
+            width: 0.48rem;
+            height: 0.48rem;
         }
 
     }
     .m-tabbar-item-text{
         display: block;
-        font-size: 10px;
+        font-size: 0.24rem;
         color:#949494;
     }
     &.is-active{

@@ -19,8 +19,9 @@
     right: 0;
     width: 100%;
     overflow: hidden;
-    height: 50px;
+    height: 1rem;
     background: #fff;
     border-top: 1px solid #e4e4e4;
+    z-index:1001;
 }
 </style>
