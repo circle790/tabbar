@@ -60,7 +60,7 @@ export default {
       if (!(this.list && this.list.length === 0)) {
         this.render(this.index)
       }
-      this.xheight = this.getHeight()
+
     })
   },
   methods: {
@@ -127,6 +127,11 @@ export default {
       }
     }
   },
+  computed:{
+    xheight(){
+        return this.getHeight();
+    }
+  },
   props: {
     list: {
       type: Array,
@@ -186,7 +191,6 @@ export default {
     return {
       hasRender: false,
       current: this.index || 0,
-      xheight: 'auto',
       length: this.list.length,
       index: 0,
       // issue #1484 Fix click to fail

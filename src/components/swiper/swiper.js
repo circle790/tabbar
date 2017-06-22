@@ -52,8 +52,9 @@ class Swiper {
   }
 
   updateItemWidth () {
-    this._width = this.$box.offsetWidth || document.documentElement.offsetWidth
-    this._distance = this._options.direction === 'horizontal' ? this._width : this._height
+    this._width = this.$box.offsetWidth || document.documentElement.offsetWidth;
+    this._height = this.$container.offsetHeight || document.documentElement.offsetHeight;
+    this._distance = this._options.direction === 'horizontal' ? this._width : this._height;
   }
 
   stop () {
@@ -73,7 +74,8 @@ class Swiper {
         me._setTransform()
       }, 100)
     }
-    window.addEventListener('orientationchange', this.resizeHandler, false)
+    //此处使用resize事件替代orientationchange事件
+    window.addEventListener('resize', this.resizeHandler, false)
   }
 
   _init () {

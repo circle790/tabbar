@@ -134,6 +134,9 @@
     export default {
         data(){
             return {
+                screenH: window.innerHeight
+                || document.documentElement.clientHeight
+                || document.body.clientHeight,
                 bannerList: [{
                     url: 'javascript:',
                     img: 'https://o5omsejde.qnssl.com/demo/test1.jpg',
@@ -149,15 +152,14 @@
         components: {
             swiper, swiperItem
         },
-        computed: {
-            screenH(){
-                let h = window.innerHeight
+        mounted(){
+            let _this = this;
+            $(window).on("resize", function(){
+                _this.screenH = window.innerHeight
                     || document.documentElement.clientHeight
                     || document.body.clientHeight;
-                return h;
-            }
-        },
-        mounted(){
+            })
+
             let startScroll, touchStart, touchCurrent;
             let swiperSlides = document.querySelector(".swiper-desc");
             swiperSlides.addEventListener('touchstart', function (e) {
