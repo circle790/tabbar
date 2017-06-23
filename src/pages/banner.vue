@@ -161,12 +161,12 @@
             })
 
             let startScroll, touchStart, touchCurrent;
-            let swiperSlides = document.querySelector(".swiper-desc");
-            swiperSlides.addEventListener('touchstart', function (e) {
+            let swiperSlides = $(".swiper-desc");
+            swiperSlides.on('touchstart', function (e) {
                 startScroll = this.scrollTop;
                 touchStart = e.targetTouches[0].pageY;
-            }, true);
-            swiperSlides.addEventListener('touchend', function (e) {
+            });
+            swiperSlides.on('touchend', function (e) {
                 touchCurrent = e.changedTouches[0].pageY;
                 let touchesDiff = touchCurrent - touchStart;
                 let slide = this;
@@ -182,7 +182,7 @@
                 } else {
                     return;
                 }
-            }, true);
+            });
         }
     }
 </script>

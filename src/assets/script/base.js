@@ -2,6 +2,8 @@
 import $ from 'jquery'
 import tips from './tips'
 import urlMap from './ajaxMap'
+import url from './url'
+
 // 设备信息
 let device = (() => {
     let ua = navigator.userAgent.toLowerCase();
@@ -48,6 +50,7 @@ let ajax = function (arg) {
 export default {
     device,
     validateRule,
+    url,
     ajax,
     urlMap,
     confirm(opts){
