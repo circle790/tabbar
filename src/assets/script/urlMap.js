@@ -1,5 +1,5 @@
 'use strict';
-var api = 'http://local.tabbar.com';
+var api = 'http://h5.test.com';
 export default {
     inviteList: {
         url: api + '/inviteList',
