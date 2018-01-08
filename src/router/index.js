@@ -5,7 +5,8 @@ import tabView from '../pages/tabView'
 import popTest from '../pages/popTest'
 import inviteList from '../pages/inviteList'
 import pullRefresh from '../pages/pullRefresh'
-import banner from '../pages/banner.vue'
+import banner from '../pages/banner'
+import formVerify from '../pages/formVerify'
 Vue.use(Router)
 
 export default new Router({
@@ -37,9 +38,14 @@ export default new Router({
             component: pullRefresh
         },
         {
-            path: '/banner',
-            name: 'banner',
-            component: banner
+          path: '/banner',
+          name: 'banner',
+          component: banner
+        },
+        {
+          path: '/formVerify',
+          name: 'formVerify',
+          component: formVerify
         }
     ]
 })
