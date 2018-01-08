@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-  import Validator from '../assets/script/validator'
+  import Vue from 'vue'
   export default {
     name: 'formVerify',
     data() {
@@ -105,12 +105,10 @@
         }
       }
     },
-    methods: {
-      apply(formData, rules) {
+    computed: {
+      validator: function() {
+        return this.$Validator(this.member, this.rules)
       }
-    },
-    created() {
-      this.validator = new Validator(this.member, this.rules)
     }
   }
 </script>
