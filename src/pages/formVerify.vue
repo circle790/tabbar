@@ -3,49 +3,58 @@
     <div class="row">
       <div class="top">
         <span class="label">姓名：</span>
-        <input type="text" v-model="member.name" placeholder="请输入姓名" @blur="errorTips.name = !validator.checkData('name')">
+        <input type="text" v-model="member.name" placeholder="请输入姓名" @blur="validator.checkData('name')">
       </div>
-      <div class="cover" v-show="errorTips.name">*请重新输入姓名！</div>
+      <div class="cover" v-show="!validator.results.name.passed">*{{validator.results.name.validMsg}}</div>
     </div>
     <div class="row">
       <div class="top">
         <span class="label">年龄：</span>
-        <input type="number" v-model="member.age" placeholder="请输入年龄" @blur="errorTips.age = !validator.checkData('age')">
+        <input type="number" v-model="member.age" placeholder="请输入年龄" @blur="validator.checkData('age')">
       </div>
-      <div class="cover" v-show="errorTips.age">*请重新输入年龄！</div>
+      <div class="cover" v-show="!validator.results.age.passed">*{{validator.results.age.validMsg}}</div>
     </div>
     <div class="row">
+      <div class="top">
         <span class="label">性别：</span>
-        <label><input type="radio" v-model="member.gender" value="男">男</label>
-        <label><input type="radio" v-model="member.gender" value="女">女</label>
+        <label><input type="radio" v-model="member.gender" value="男" @change="validator.checkData('gender')">男</label>
+        <label><input type="radio" v-model="member.gender" value="女" @change="validator.checkData('gender')">女</label>
+        </div>
+      <div class="cover" v-show="!validator.results.gender.passed">*{{validator.results.gender.validMsg}}</div>
     </div>
     <div class="row">
       <div class="top">
         <span class="label">手机：</span>
-        <input type="tel" v-model="member.phone" placeholder="请输入手机号" @blur="errorTips.phone = !validator.checkData('phone')">
+        <input type="tel" v-model="member.phone" placeholder="请输入手机号" @blur="validator.checkData('phone')">
       </div>
-      <div class="cover" v-show="errorTips.phone">*请重新输入手机号！</div>
+      <div class="cover" v-show="!validator.results.phone.passed">*{{validator.results.phone.validMsg}}</div>
     </div>
     <div class="row">
-      <span class="label">职业：</span>
-      <select v-model="member.job">
-        <option disabled value="">请选择</option>
-        <option value="1">教师</option>
-        <option value="2">学生</option>
-        <option value="3">医生</option>
-        <option value="4">护士</option>
-        <option value="5">警察</option>
-        <option value="6">工人</option>
-      </select>
+      <div class="top">
+        <span class="label">职业：</span>
+        <select v-model="member.job" @change="validator.checkData('job')">
+          <option disabled value="">请选择</option>
+          <option value="1">教师</option>
+          <option value="2">学生</option>
+          <option value="3">医生</option>
+          <option value="4">护士</option>
+          <option value="5">警察</option>
+          <option value="6">工人</option>
+        </select>
+      </div>
+      <div class="cover" v-show="!validator.results.job.passed">*{{validator.results.job.validMsg}}</div>
     </div>
     <div class="row">
-      <span class="label">爱好：</span>
-      <label><input type="checkbox" value="游泳" v-model="member.hobby">游泳</label>
-      <label><input type="checkbox" value="跑步" v-model="member.hobby">跑步</label>
-      <label><input type="checkbox" value="篮球" v-model="member.hobby">篮球</label>
-      <label><input type="checkbox" value="阅读" v-model="member.hobby">阅读</label>
-      <label><input type="checkbox" value="唱歌" v-model="member.hobby">唱歌</label>
-      <label><input type="checkbox" value="上网" v-model="member.hobby">上网</label>
+      <div class="top">
+        <span class="label">爱好：</span>
+        <label><input type="checkbox" value="游泳" v-model="member.hobby" @change="validator.checkData('hobby')">游泳</label>
+        <label><input type="checkbox" value="跑步" v-model="member.hobby" @change="validator.checkData('hobby')">跑步</label>
+        <label><input type="checkbox" value="篮球" v-model="member.hobby" @change="validator.checkData('hobby')">篮球</label>
+        <label><input type="checkbox" value="阅读" v-model="member.hobby" @change="validator.checkData('hobby')">阅读</label>
+        <label><input type="checkbox" value="唱歌" v-model="member.hobby" @change="validator.checkData('hobby')">唱歌</label>
+        <label><input type="checkbox" value="上网" v-model="member.hobby" @change="validator.checkData('hobby')">上网</label>
+      </div>
+      <div class="cover" v-show="!validator.results.hobby.passed">*{{validator.results.hobby.validMsg}}</div>
     </div>
     <div class="row">
       <p class="big-label">个人简介：</p>
@@ -57,7 +66,6 @@
   </div>
 </template>
 <script>
-  import Vue from 'vue'
   export default {
     name: 'formVerify',
     data() {
@@ -98,17 +106,11 @@
             required: true
           }
         },
-        errorTips: {
-          name: false,
-          age: false,
-          phone: false
-        }
+        validator: null
       }
     },
-    computed: {
-      validator: function() {
-        return this.$Validator(this.member, this.rules)
-      }
+    created() {
+      this.validator = this.initValidator(this.member, this.rules)
     }
   }
 </script>
@@ -156,6 +158,9 @@
         border: none;
         border-radius: 0.1rem;
         color: #fff;
+        &.disabled{
+          background-color: #ccc;
+        }
       }
     }
   }

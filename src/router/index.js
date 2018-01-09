@@ -10,7 +10,7 @@ import pullRefresh from '../pages/pullRefresh'
 import banner from '../pages/banner'
 import formVerify from '../pages/formVerify'
 Vue.use(Router)
-Vue.use(Validator, { someOption: '11111' })
+Vue.use(Validator)
 export default new Router({
     mode: 'history',
     routes: [
