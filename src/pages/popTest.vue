@@ -22,7 +22,7 @@
     </p>
     <p><br></p>
     <p>
-      <router-link to="/">进入表单验证页面</router-link>
+      <router-link to="/formVerify">进入表单验证页面</router-link>
     </p>
   </div>
 </template>
