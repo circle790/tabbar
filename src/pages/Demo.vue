@@ -9,7 +9,9 @@
             </div>
         </div>
         <div class="bot">
-            <div class="content">底部元素</div>
+            <div class="bot-wrap">
+                <div class="content">底部元素</div>
+            </div>
         </div>
     </div>
 </template>
@@ -44,9 +46,14 @@
   }
   .bot{
     width: 100%;
-    height: 3rem;
     background-color: green;
     text-align: center;
+    .bot-wrap{
+      width: 6rem;
+      height: 3rem;
+      margin: 0 auto;
+      background-color: #fff;
+    }
   }
   .center{
     width: 100%;
