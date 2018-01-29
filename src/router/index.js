@@ -9,6 +9,7 @@ import inviteList from '../pages/inviteList'
 import pullRefresh from '../pages/pullRefresh'
 import banner from '../pages/banner'
 import formVerify from '../pages/formVerify'
+import Demo from '../pages/Demo'
 Vue.use(Router)
 Vue.use(Validator)
 export default new Router({
@@ -48,6 +49,11 @@ export default new Router({
           path: '/formVerify',
           name: 'formVerify',
           component: formVerify
+        },
+        {
+          path: '/demo',
+          name: 'Demo',
+          component: Demo
         }
     ]
 })
