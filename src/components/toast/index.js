@@ -3,15 +3,17 @@ import toastTpl from './toastTpl.vue';
 
 let toast = new Vue({
     el: 'toast',
-    data: {
+    data() {
+      return {
         config: {
-            isShow: false,
-            iconClass: '',
-            customClass: '',
-            message: '加载中...',
-            duration: 1200,
-            over: null
+          isShow: false,
+          iconClass: '',
+          customClass: '',
+          message: '加载中...',
+          duration: 1200,
+          over: null
         }
+      }
     },
     components: {toastTpl},
     computed: {

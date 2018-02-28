@@ -78,7 +78,13 @@
       },
       showDownload() {
         this.$download({
-          name: 'waiwai'
+          iconClass: "yy-icon",
+          customClass: "yy-set",
+          message: "toast...",
+          duration: 3000,
+          over: function () {
+            console.log("完成了")
+          }
         })
       }
     }
