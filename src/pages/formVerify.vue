@@ -3,14 +3,14 @@
     <div class="row">
       <div class="top">
         <span class="label">姓名：</span>
-        <input type="text" v-model="member.name" placeholder="请输入姓名" @blur="validator.checkData('name')">
+        <input type="text" v-model="member.name" placeholder="请输入姓名" @input="validator.checkData('name')">
       </div>
       <div class="cover" v-show="!validator.results.name.passed">*{{validator.results.name.validMsg}}</div>
     </div>
     <div class="row">
       <div class="top">
         <span class="label">年龄：</span>
-        <input type="number" v-model="member.age" placeholder="请输入年龄" @blur="validator.checkData('age')">
+        <input type="number" v-model="member.age" placeholder="请输入年龄" @input="validator.checkData('age')">
       </div>
       <div class="cover" v-show="!validator.results.age.passed">*{{validator.results.age.validMsg}}</div>
     </div>
@@ -25,7 +25,7 @@
     <div class="row">
       <div class="top">
         <span class="label">手机：</span>
-        <input type="tel" v-model="member.phone" placeholder="请输入手机号" @blur="validator.checkData('phone')">
+        <input type="tel" v-model="member.phone" placeholder="请输入手机号" @input="validator.checkData('phone')">
       </div>
       <div class="cover" v-show="!validator.results.phone.passed">*{{validator.results.phone.validMsg}}</div>
     </div>

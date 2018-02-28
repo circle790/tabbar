@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Validator from '../assets/script/plugin'
 
 import Index from '../pages/Index'
 import tabView from '../pages/tabView'
@@ -11,7 +10,6 @@ import banner from '../pages/banner'
 import formVerify from '../pages/formVerify'
 import Demo from '../pages/Demo'
 Vue.use(Router)
-Vue.use(Validator)
 export default new Router({
     mode: 'history',
     routes: [

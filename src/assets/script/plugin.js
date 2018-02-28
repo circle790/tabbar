@@ -1,8 +1,7 @@
 /**
  * vue-plugin编写练习
  */
-import Vue from 'vue'
-const $validator = class Validator {
+class $validator {
   constructor(formData, rules) {
     this.formData = formData
     this.rules = rules
