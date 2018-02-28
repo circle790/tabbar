@@ -24,6 +24,10 @@
     <p>
       <router-link to="/formVerify">进入表单验证页面</router-link>
     </p>
+    <p><br></p>
+    <p>
+      <button @click="showDownload">下载提示</button>
+    </p>
   </div>
 </template>
 
@@ -70,6 +74,11 @@
           over: function () {
             console.log("完成了")
           }
+        })
+      },
+      showDownload() {
+        this.$download({
+          name: 'waiwai'
         })
       }
     }

@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import './assets/less/app.less';
+import './assets/less/app.less'
+
+import downloadPlugin from './components/download'
+Vue.use(downloadPlugin)
 
 new Vue({
   el: '#app',
