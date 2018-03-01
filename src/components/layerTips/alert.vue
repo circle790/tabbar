@@ -22,7 +22,12 @@
                 this.$parent.isShow = false
             }
         },
-        components: {}
+        mounted() {
+            let mask = document.querySelector('.ui-pop-frame')
+            mask.addEventListener('touchmove', function(e) {
+                e.preventDefault()
+            })
+        }
     }
 </script>
 <style lang='less'>

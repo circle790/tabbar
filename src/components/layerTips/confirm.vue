@@ -32,7 +32,12 @@
                 return true
             }
         },
-        components: {}
+        mounted() {
+            let mask = document.querySelector('.ui-pop-frame')
+            mask.addEventListener('touchmove', function(e) {
+                e.preventDefault()
+            })
+        }
     }
 </script>
 <style lang='less'>
