@@ -61,8 +61,5 @@ export default {
     },
     alert(opts,fn){
       tips.alert(opts,fn)
-    },
-    toast(opts){
-      tips.toast(opts)
     }
 }

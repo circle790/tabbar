@@ -1,12 +1,12 @@
 <template>
-      <div class="maskLayer">
-          <transition name='fade' appear>
-              <div class="toast" :class="customClass">
-                  <em v-if="iconClass" :class="iconClass" class="toast-icon"></em>
-                  <span>{{message}}</span>
-              </div>
-          </transition>
+  <div class="maskLayer">
+    <transition name='fade' appear>
+      <div class="toast" :class="customClass">
+        <em v-if="iconClass" :class="iconClass" class="toast-icon"></em>
+        <span>{{message}}</span>
       </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -66,7 +66,6 @@
   }
   .toast-icon{
     display: block;
-    vertical-align:top;
     margin:0 auto 0.1rem;
   }
   .fade-enter-active, .fade-leave-active {

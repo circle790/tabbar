@@ -7,10 +7,9 @@ import router from './router'
 import './assets/less/app.less'
 
 import Validator from './assets/script/plugin'
+import toastPlugin from './components/toast'
 Vue.use(Validator)
-
-import downloadPlugin from './components/download'
-Vue.use(downloadPlugin)
+Vue.use(toastPlugin)
 
 new Vue({
   el: '#app',

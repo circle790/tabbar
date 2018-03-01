@@ -24,10 +24,6 @@
     <p>
       <router-link to="/formVerify">进入表单验证页面</router-link>
     </p>
-    <p><br></p>
-    <p>
-      <button @click="showDownload">下载提示</button>
-    </p>
   </div>
 </template>
 
@@ -39,13 +35,13 @@
       return {}
     },
     methods: {
-      showConfirm: function () {
+      showConfirm() {
         base.confirm({
           content: '密码不正确，找回或重置密码？',
           confirmText: `<a href="#" style="display: block;">找回密码</a>`
         })
       },
-      showNotice: function () {
+      showNotice() {
         base.notice({
           title: '账号已锁定',
           content: `
@@ -59,30 +55,19 @@
           isShow: true
         })
       },
-      showAlert: function () {
+      showAlert() {
         base.alert("这是字符串弹出")
       },
-      showToast1: function () {
-        base.toast("加载中...")
+      showToast1() {
+        this.$toast('toast插件')
       },
-      showToast2: function () {
-        base.toast({
+      showToast2() {
+        this.$toast({
           iconClass: "yy-icon",
           customClass: "yy-set",
           message: "toast...",
           duration: 3000,
-          over: function () {
-            console.log("完成了")
-          }
-        })
-      },
-      showDownload() {
-        this.$download({
-          iconClass: "yy-icon",
-          customClass: "yy-set",
-          message: "toast...",
-          duration: 3000,
-          over: function () {
+          over() {
             console.log("完成了")
           }
         })

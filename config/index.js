@@ -25,7 +25,7 @@ module.exports = {
     dev: {
         env: {NODE_ENV: '"development"'},
         apiRoot: "http://h5.test.com",
-        port: 7788,
+        port: 7789,
         autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',

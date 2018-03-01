@@ -1,5 +1,4 @@
 import layerTips from '../../components/layerTips';
-import toast from '../../components/toast';
 
 export default {
     confirm(opts){
@@ -31,16 +30,6 @@ export default {
                 type: 'alert',
                 isShow: true
             });
-        }
-    },
-    toast(opts){
-        if(typeof opts == 'string'){
-            toast.config = Object.assign(toast.config, {
-                message: opts,
-                isShow: true
-            });
-        } else {
-            toast.config = Object.assign(toast.config, opts, {isShow: true});
         }
     }
 }
