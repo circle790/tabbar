@@ -28,7 +28,6 @@
 </template>
 
 <script>
-  import base from '../assets/script/base';
   export default {
     name: 'popTest',
     data () {
@@ -36,13 +35,13 @@
     },
     methods: {
       showConfirm() {
-        base.confirm({
+        this.$confirm({
           content: '密码不正确，找回或重置密码？',
           confirmText: `<a href="#" style="display: block;">找回密码</a>`
         })
       },
       showNotice() {
-        base.notice({
+        this.$notice({
           title: '账号已锁定',
           content: `
                         如何解锁？
@@ -56,7 +55,7 @@
         })
       },
       showAlert() {
-        base.alert("这是字符串弹出")
+        this.$alert("这是字符串弹出")
       },
       showToast1() {
         this.$toast('toast插件')

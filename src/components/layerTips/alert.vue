@@ -12,16 +12,19 @@
 <script>
     export default{
         props: ['content', 'confirmCallback'],
-        data(){
+        data() {
             return {}
         },
         methods: {
-            confirm(){
-                this.confirmCallback && this.confirmCallback();
-                this.$parent.content = '';
-                this.$parent.isShow = false;
+            confirm() {
+                this.confirmCallback && this.confirmCallback()
+                this.$parent.content = ''
+                this.$parent.isShow = false
             }
         },
         components: {}
     }
 </script>
+<style lang='less'>
+@import './layerTips.less';
+</style>

@@ -8,8 +8,10 @@ import './assets/less/app.less'
 
 import Validator from './assets/script/plugin'
 import toastPlugin from './components/toast'
+import tipsPlugin from './components/layerTips'
 Vue.use(Validator)
 Vue.use(toastPlugin)
+Vue.use(tipsPlugin)
 
 new Vue({
   el: '#app',

@@ -11,19 +11,22 @@
 </template>
 <script>
     export default{
-        props: ['title','content'],
-        data(){
+        props: ['title', 'content'],
+        data() {
             return {}
         },
         methods: {
-            confirm(){
-                let _this = this;
+            confirm() {
+                let _this = this
 
-                _this.$parent.title = '';
-                _this.$parent.content = '';
-                _this.$parent.isShow = false;
+                _this.$parent.title = ''
+                _this.$parent.content = ''
+                _this.$parent.isShow = false
             }
         },
         components: {}
     }
 </script>
+<style lang='less'>
+@import './layerTips.less';
+</style>

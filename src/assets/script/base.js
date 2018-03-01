@@ -1,6 +1,5 @@
 'use strict';
 import $ from 'jquery'
-import tips from './tips'
 import urlMap from './ajaxMap'
 import url from './url'
 
@@ -52,14 +51,5 @@ export default {
     validateRule,
     url,
     ajax,
-    urlMap,
-    confirm(opts){
-      tips.confirm(opts)
-    },
-    notice(opts){
-      tips.notice(opts)
-    },
-    alert(opts,fn){
-      tips.alert(opts,fn)
-    }
+    urlMap
 }

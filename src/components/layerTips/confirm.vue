@@ -10,29 +10,31 @@
     </div>
 </template>
 <script>
-
     export default{
         props: ['content', 'confirm', 'cancel', 'confirmCallback', 'cancelCallback'],
-        data(){
+        data() {
             return {}
         },
         methods: {
-            close: function(){
-                let _this = this;
-                _this.$parent.content = '';
-                _this.$parent.isShow = false;
+            close: function() {
+                let _this = this
+                _this.$parent.content = ''
+                _this.$parent.isShow = false
             },
-            no: function(){
-                this.cancelCallback && this.cancelCallback();
-                this.close();
-                return false;
+            no: function() {
+                this.cancelCallback && this.cancelCallback()
+                this.close()
+                return false
             },
-            yes: function(){
-                this.confirmCallback && this.confirmCallback();
-                this.close();
-                return true;
+            yes: function() {
+                this.confirmCallback && this.confirmCallback()
+                this.close()
+                return true
             }
         },
         components: {}
     }
 </script>
+<style lang='less'>
+@import './layerTips.less';
+</style>
