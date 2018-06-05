@@ -9,6 +9,7 @@
             :page-index="currentPage"
             :total="count"
             :page-size="pageSize"
+            :per-pages="perPages"
             @change="pageChange">
         </paging>
       </div>
@@ -25,9 +26,10 @@
     },
     data () {
       return {
-        pageSize : 20 , //每页显示20条数据
-        currentPage : 1, //当前页码
-        count : 50, //总记录数
+        perPages: 3, // 最多显示分页数，超出显示...
+        pageSize : 5 , // 每页显示20条数据
+        currentPage : 1, // 当前页码
+        count : 50, // 总记录数
         items : []
       }
     },
