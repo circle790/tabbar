@@ -9,6 +9,8 @@ import pullRefresh from '../pages/pullRefresh'
 import banner from '../pages/banner'
 import formVerify from '../pages/formVerify'
 import Demo from '../pages/Demo'
+import Pagination from '../pages/Pagination'
+
 Vue.use(Router)
 export default new Router({
     mode: 'history',
@@ -52,6 +54,11 @@ export default new Router({
           path: '/demo',
           name: 'Demo',
           component: Demo
+        },
+        {
+          path: '/pagination',
+          name: 'Pagination',
+          component: Pagination
         }
     ]
 })

@@ -24,6 +24,10 @@
     <p>
       <router-link to="/formVerify">进入表单验证页面</router-link>
     </p>
+    <p><br></p>
+    <p>
+      <router-link to="/pagination">进入分页页面</router-link>
+    </p>
   </div>
 </template>
 
