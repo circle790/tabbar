@@ -35,13 +35,19 @@
         index: this.pageIndex, // 当前页码
         limit: this.pageSize, // 每页显示条数
         size: this.total || 1, // 总记录数
+        goDirection: 'next',
         showPrevMore: false,
         showNextMore: false
       }
     },
     watch: {
-      pageIndex(val) {
+      pageIndex(val, oldVal) {
         this.index = val || 1
+        if (val > oldVal) {
+          this.goDirection = 'next'
+        } else {
+          this.goDirection = 'prev'
+        }
       },
       pageSize(val) {
         this.limit = val || 10
@@ -117,9 +123,12 @@
         const pageCount = this.pages
         let current = this.index
         const _offset = (perPages - 1) / 2
-        const offset = {
-          start: current - _offset,
-          end: current + _offset
+        const offset = this.goDirection === 'next' ? {
+          start: Math.ceil(current - _offset),
+          end: Math.ceil(current + _offset)
+        } : {
+          start: Math.floor(current - _offset),
+          end: Math.floor(current + _offset)
         }
         // -1, 3
         if(offset.start < 1) {
