@@ -1,5 +1,5 @@
 <template>
-  <div class="popTest" style="text-align:center;">
+  <div class="popTest">
     <p><br><br></p>
     <p>
       <button @click="showConfirm">弹出confirm</button>
@@ -22,20 +22,32 @@
     </p>
     <p><br></p>
     <p>
+      <a href="javascript:;" @click="displayDatePicker">选择生日{{ birthday }}</a>
+    </p>
+    <p><br></p>
+    <p>
       <router-link to="/formVerify">进入表单验证页面</router-link>
     </p>
     <p><br></p>
     <p>
       <router-link to="/pagination">进入分页页面</router-link>
     </p>
+    <date-picker v-if="showDatePicker" @on-close="closeHandler" @on-picked="pickerHandler"></date-picker>
   </div>
 </template>
 
 <script>
+  import DatePicker from '../components/DatePicker/DatePicker'
   export default {
     name: 'popTest',
+    components: {
+      DatePicker
+    },
     data () {
-      return {}
+      return {
+        showDatePicker: false,
+        birthday: ''
+      }
     },
     methods: {
       showConfirm() {
@@ -66,7 +78,7 @@
       },
       showToast2() {
         this.$toast({
-          iconClass: "yy-icon",
+          iconClass: "success",
           customClass: "yy-set",
           message: "toast...",
           duration: 3000,
@@ -74,6 +86,15 @@
             console.log("完成了")
           }
         })
+      },
+      displayDatePicker() {
+        this.showDatePicker = true
+      },
+      closeHandler() {
+        this.showDatePicker = false
+      },
+      pickerHandler(date) {
+        this.birthday = `${date.year}/${date.month}/${date.day}`
       }
     }
   }
@@ -84,6 +105,9 @@
     width: 140px;
     height: 36px;
     font-size: 0.28rem;
+  }
+  .popTest p {
+    text-align: center;
   }
 
   .yy-set {
