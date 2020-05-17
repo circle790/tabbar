@@ -7,7 +7,7 @@ class Swiper {
       item: '.vux-swiper-item',
       direction: 'vertical',
       activeClass: 'active',
-      minMovingDistance: 5,  // 大于时定义动作为滑动
+      minMovingDistance: 10,  // 大于时定义动作为滑动
       threshold: 50,  // 滑动切换触发边界
       duration: 300,  // 滑动动画切换时间
       loop: false, // 默认不循环切换
@@ -152,9 +152,14 @@ class Swiper {
       me._move.y = e.changedTouches[0].pageY
       let distanceX = me._move.x - me._start.x
       let distanceY = me._move.y - me._start.y
-      let distance = me._options.direction === 'horizontal' ? distanceX : distanceY
-      distance = me._options.loop ? distance : this.getDistance(distance)
-      if (Math.abs(distance) > me._options.minMovingDistance) {
+      let distance = distanceY
+      let noScroller = parseInt(Math.abs(distanceX/distanceY)) > 1  // 明确滑动动作方向
+      if(me._options.direction === 'horizontal') {
+        distance = distanceX
+        noScroller = parseInt(Math.abs(distanceY/distanceX)) > 1  // 明确滑动动作方向
+      }
+      distance = this.getDistance(distance)
+      if (Math.abs(distance) > me._options.minMovingDistance && !noScroller) { // 达到动作边界值认为滑动
         me._setTransform(distance)
       }
       e.preventDefault()
@@ -163,14 +168,16 @@ class Swiper {
     me.touchendHandler = (e) => {
       me._end.x = e.changedTouches[0].pageX
       me._end.y = e.changedTouches[0].pageY
-
-      let distance = me._end.y - me._start.y
+      let distanceX = me._end.x - me._start.x
+      let distanceY = me._end.y - me._start.y
+      let distance = distanceY
+      let noScroller = parseInt(Math.abs(distanceX/distanceY)) > 1  // 明确滑动动作方向
       if (me._options.direction === 'horizontal') {
-        distance = me._end.x - me._start.x
+        distance = distanceX
+        noScroller = parseInt(Math.abs(distanceY/distanceX)) > 1  // 明确滑动动作方向
       }
-
       distance = me.getDistance(distance)
-      if (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance) {
+      if (noScroller || (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance)) {
         return
       }
       if (distance > me._options.threshold) {

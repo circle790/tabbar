@@ -11,10 +11,10 @@
     <br>
     <swiper id="vertical" direction="vertical" width="100%" :height="screenH + 'px'">
       <swiper-item class="swiper-img">
-        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?text=banner04">
+        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?bg=8e7cc3&text=banner04">
       </swiper-item>
       <swiper-item class="swiper-desc">
-        <div class="swiperScroll">
+        <div class="swiper-scroll">
           <h2>swiper内部内容的滑动</h2>
           <br>
           <br>
@@ -142,13 +142,13 @@
         || document.body.clientHeight,
         bannerList: [{
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?text=banner01',
+          img: 'https://iph.href.lu/750x1334?bg=93c47d&text=banner01',
         }, {
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?text=banner02'
+          img: 'https://iph.href.lu/750x1334?bg=ffe599&text=banner02'
         }, {
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?text=banner03'
+          img: 'https://iph.href.lu/750x1334?bg=9fc5e8&text=banner03'
         }]
       }
     },
@@ -201,7 +201,7 @@
     overflow-y: auto;
   }
 
-  #vertical .swiperScroll {
+  #vertical .swiper-scroll {
     padding: 0.4rem;
   }
 </style>
