@@ -273,7 +273,7 @@
       top: -0.18rem;
       right: -0.18rem;
       z-index: 21;
-      background: url("~assets/images/common/close.png") no-repeat center/cover;
+      background: url("./close.png") no-repeat center/cover;
     }
     .title{
       font-size: 0.42rem;

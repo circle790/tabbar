@@ -94,13 +94,16 @@
       left: .3rem;
       margin-top: -.24rem;
       &.success{
-        background: url("~assets/images/common/toast_success.png") no-repeat center/contain;
+        background: url("./toast_success.png") no-repeat center/contain;
       }
       &.error{
-        background: url("~assets/images/common/toast_error.png") no-repeat center/contain;
+        background: url("./toast_error.png") no-repeat center/contain;
       }
       &.info{
-        background: url("~assets/images/common/toast_info.png") no-repeat center/contain;
+        background: url("./toast_info.png") no-repeat center/contain;
+      }
+      &.loading{
+        background: url("./toast_loading.gif") no-repeat center/contain;
       }
     }
     &.has-icon{

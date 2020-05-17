@@ -79,9 +79,9 @@
       showToast2() {
         this.$toast({
           iconClass: "success",
-          customClass: "yy-set",
+          className: "yy-set-class",
           message: "toast...",
-          duration: 3000,
+          duration: 2000,
           over() {
             console.log("完成了")
           }
@@ -110,15 +110,4 @@
     text-align: center;
   }
 
-  .yy-set {
-    top: 35%;
-  }
-
-  .yy-icon {
-    width: 0.32rem;
-    height: 0.32rem;
-    padding: 0.1rem;
-    background: url("../assets/images/loading01.gif") no-repeat center;
-    background-size: 0.32rem 0.32rem;
-  }
 </style>
