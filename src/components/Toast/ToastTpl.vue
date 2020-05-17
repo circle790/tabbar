@@ -52,7 +52,7 @@
   }
 </script>
 <style lang="less" scoped>
-  .toast-box{
+  .toast-box {
     width: 100%;
     left: 50%;
     top: 50%;
@@ -76,7 +76,8 @@
       transform: translate3d(-50%, 0, 0);
     }
   }
-  .toast{
+
+  .toast {
     border-radius: 10rem;
     padding: .24rem .3rem;
     background: rgba(0, 0, 0, .7);
@@ -93,22 +94,22 @@
       top: 50%;
       left: .3rem;
       margin-top: -.24rem;
-      &.success{
+      &.success {
         background: url("./toast_success.png") no-repeat center/contain;
       }
-      &.error{
+      &.error {
         background: url("./toast_error.png") no-repeat center/contain;
       }
-      &.info{
+      &.info {
         background: url("./toast_info.png") no-repeat center/contain;
       }
-      &.loading{
+      &.loading {
         background: url("./toast_loading.gif") no-repeat center/contain;
       }
     }
-    &.has-icon{
+    &.has-icon {
       padding-left: 0.9rem;
-      .toast-icon{
+      .toast-icon {
         display: block;
       }
     }

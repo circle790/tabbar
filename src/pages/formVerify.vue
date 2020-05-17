@@ -19,7 +19,7 @@
         <span class="label">性别：</span>
         <label><input type="radio" v-model="member.gender" value="男" @change="validator.checkData('gender')">男</label>
         <label><input type="radio" v-model="member.gender" value="女" @change="validator.checkData('gender')">女</label>
-        </div>
+      </div>
       <div class="cover" v-show="!validator.results.gender.passed">*{{validator.results.gender.validMsg}}</div>
     </div>
     <div class="row">
@@ -47,12 +47,18 @@
     <div class="row">
       <div class="top">
         <span class="label">爱好：</span>
-        <label><input type="checkbox" value="游泳" v-model="member.hobby" @change="validator.checkData('hobby')">游泳</label>
-        <label><input type="checkbox" value="跑步" v-model="member.hobby" @change="validator.checkData('hobby')">跑步</label>
-        <label><input type="checkbox" value="篮球" v-model="member.hobby" @change="validator.checkData('hobby')">篮球</label>
-        <label><input type="checkbox" value="阅读" v-model="member.hobby" @change="validator.checkData('hobby')">阅读</label>
-        <label><input type="checkbox" value="唱歌" v-model="member.hobby" @change="validator.checkData('hobby')">唱歌</label>
-        <label><input type="checkbox" value="上网" v-model="member.hobby" @change="validator.checkData('hobby')">上网</label>
+        <label><input type="checkbox" value="游泳" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">游泳</label>
+        <label><input type="checkbox" value="跑步" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">跑步</label>
+        <label><input type="checkbox" value="篮球" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">篮球</label>
+        <label><input type="checkbox" value="阅读" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">阅读</label>
+        <label><input type="checkbox" value="唱歌" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">唱歌</label>
+        <label><input type="checkbox" value="上网" v-model="member.hobby"
+                      @change="validator.checkData('hobby')">上网</label>
       </div>
       <div class="cover" v-show="!validator.results.hobby.passed">*{{validator.results.hobby.validMsg}}</div>
     </div>
@@ -115,42 +121,42 @@
   }
 </script>
 <style lang="less" scoped>
-  .formData{
+  .formData {
     padding: 0.36rem;
-    .row{
+    .row {
       margin-bottom: 0.32rem;
-      .top{
+      .top {
         margin-bottom: 0.1rem;
       }
-      .cover{
+      .cover {
         font-size: 0.18rem;
         color: red;
       }
-      .big-label{
+      .big-label {
         margin-bottom: 0.1rem;
       }
-      input[type="text"],input[type="number"],input[type="tel"]{
+      input[type="text"], input[type="number"], input[type="tel"] {
         width: 180px;
         height: 32px;
         padding: 0 10px;
-        border:solid 0.01rem #ccc;
+        border: solid 0.01rem #ccc;
         border-radius: 0.1rem;
       }
-      select{
+      select {
         width: 180px;
         height: 32px;
         padding: 0 10px;
-        border:solid 0.01rem #ccc;
+        border: solid 0.01rem #ccc;
       }
-      textarea{
+      textarea {
         width: 320px;
         height: 120px;
         padding: 10px;
         box-sizing: border-box;
-        border:solid 0.01rem #ccc;
+        border: solid 0.01rem #ccc;
         border-radius: 0.1rem;
       }
-      button.button{
+      button.button {
         width: 120px;
         height: 36px;
         font-size: 0.26rem;
@@ -158,7 +164,7 @@
         border: none;
         border-radius: 0.1rem;
         color: #fff;
-        &.disabled{
+        &.disabled {
           background-color: #ccc;
         }
       }

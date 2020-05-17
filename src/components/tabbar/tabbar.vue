@@ -1,16 +1,16 @@
 <template>
-    <div class="m-tabbar">
-       <slot></slot>
-    </div>
+  <div class="m-tabbar">
+    <slot></slot>
+  </div>
 </template>
 <script>
-    import mTabbarItem from './tabbar-item';
-    export default {
-        props:["value"]
-    }
+  import mTabbarItem from './tabbar-item';
+  export default {
+    props: ["value"]
+  }
 </script>
 <style lang="less">
-.m-tabbar{
+  .m-tabbar {
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -22,6 +22,6 @@
     height: 1rem;
     background: #fff;
     border-top: 1px solid #e4e4e4;
-    z-index:1001;
-}
+    z-index: 1001;
+  }
 </style>

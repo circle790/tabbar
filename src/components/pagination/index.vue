@@ -3,29 +3,36 @@
     <!-- prev -->
     <li
         :class="['paging-item', 'paging-item--prev', {'paging-item--disabled': index === 1}]"
-        @click="prev">prev</li>
+        @click="prev">prev
+    </li>
     <!-- first -->
     <li
         :class="['paging-item', 'paging-item--first', {'paging-item--disabled': index === 1}]"
-        @click="first">first</li>
+        @click="first">first
+    </li>
     <li
         :class="['paging-item', 'paging-item--more']"
-        v-if="showPrevMore">...</li>
+        v-if="showPrevMore">...
+    </li>
     <li
         :class="['paging-item', {'paging-item--current': index === pager}]"
         v-for="pager in pagers"
-        @click="go(pager)">{{ pager }}</li>
+        @click="go(pager)">{{ pager }}
+    </li>
     <li
         :class="['paging-item', 'paging-item--more']"
-        v-if="showNextMore">...</li>
+        v-if="showNextMore">...
+    </li>
     <!-- last -->
     <li
         :class="['paging-item', 'paging-item--last', {'paging-item--disabled': index === pages}]"
-        @click="last">last</li>
+        @click="last">last
+    </li>
     <!-- next -->
     <li
         :class="['paging-item', 'paging-item--next', {'paging-item--disabled': index === pages}]"
-        @click="next">next</li>
+        @click="next">next
+    </li>
   </ul>
 </template>
 <script>
@@ -131,18 +138,20 @@
           end: Math.floor(current + _offset)
         }
         // -1, 3
-        if(offset.start < 1) {
+        if (offset.start < 1) {
           offset.end = offset.end + (1 - offset.start)
           offset.start = 1
         }
-        if(offset.end > pageCount) {
+        if (offset.end > pageCount) {
           offset.start = offset.start - (offset.end - pageCount)
           offset.end = pageCount
         }
-        if(offset.start < 1) { offset.start = 1 }
+        if (offset.start < 1) {
+          offset.start = 1
+        }
         this.showPrevMore = (offset.start > 1)
         this.showNextMore = (offset.end < pageCount)
-        for(let i = offset.start; i <= offset.end; i++) {
+        for (let i = offset.start; i <= offset.end; i++) {
           array.push(i)
         }
         return array
@@ -177,7 +186,7 @@
         color: #0275d8;
       }
       &.paging-item--disabled,
-      &.paging-item--more{
+      &.paging-item--more {
         background-color: #fff;
         color: #505050;
       }
@@ -193,7 +202,7 @@
       // 选中
       &.paging-item--current {
         background-color: #0275d8;
-        color:#fff;
+        color: #fff;
         position: relative;
         z-index: 1;
         border-color: #0275d8;

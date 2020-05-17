@@ -26,7 +26,7 @@ let removeDom = event => {
   }
 };
 
-ToastVue.prototype.close = function() {
+ToastVue.prototype.close = function () {
   this.visible = false;
   this.$el.addEventListener('transitionend', removeDom);
   this.closed = true;
@@ -36,7 +36,7 @@ ToastVue.prototype.close = function() {
 let toast = {
   install(Vue) {
     // 在Vue的原型上添加实例方法，以全局调用
-    Vue.prototype.$toast = (options={}) => {
+    Vue.prototype.$toast = (options = {}) => {
       let duration = options.duration || 3000;
 
       let instance = getAnInstance();
@@ -46,13 +46,14 @@ let toast = {
       instance.position = options.position || 'middle';
       instance.className = options.className || '';
       instance.iconClass = options.iconClass || '';
-      instance.over = typeof options.over === 'function' ? options.over : () => {}
+      instance.over = typeof options.over === 'function' ? options.over : () => {
+      }
 
       document.body.appendChild(instance.$el);
-      Vue.nextTick(function() {
+      Vue.nextTick(function () {
         instance.visible = true;
         instance.$el.removeEventListener('transitionend', removeDom);
-        duration && (instance.timer = setTimeout(function() {
+        duration && (instance.timer = setTimeout(function () {
           if (instance.closed) return;
           instance.close();
           instance.over();

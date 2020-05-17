@@ -138,8 +138,10 @@
       onDragStart(e) {
         e.preventDefault()
         draggingTarget = this.getDraggingTarget(e.target)
-        if(!draggingTarget) { return false }
-        switch(draggingTarget) {
+        if (!draggingTarget) {
+          return false
+        }
+        switch (draggingTarget) {
           case 'year':
             moved = this.yearMove
             maxMove = rem2px(this.yearList.length > 3 ? (this.yearList.length - 3) * this.itemHeight : 0) + itemHeightPx
@@ -161,13 +163,15 @@
       },
       onDragging(e) {
         e.preventDefault()
-        if (!draggingTarget) { return false }
+        if (!draggingTarget) {
+          return false
+        }
         pageY = e.touches[0].pageY
         movedY = pageY - startY
         // 滑动距离下滑为正，上滑为负
         willMoved = moved + movedY
         // 设置弹性滑动
-        if(willMoved > minMove) { // 下滑极限
+        if (willMoved > minMove) { // 下滑极限
           willMoved = minMove + (willMoved - moved) * 0.12
         } else if (-willMoved > maxMove) {  // 上滑极限
           willMoved = -maxMove + (willMoved - moved) * 0.12
@@ -177,15 +181,15 @@
         switch (draggingTarget) {
           case 'year':
             this.yearMove = willMoved
-            this.selectedYear = selectIndex >= this.yearList.length ? this.yearList[this.yearList.length-1] : this.yearList[selectIndex]
+            this.selectedYear = selectIndex >= this.yearList.length ? this.yearList[this.yearList.length - 1] : this.yearList[selectIndex]
             break
           case 'month':
             this.monthMove = willMoved
-            this.selectedMonth = selectIndex >= this.monthList.length ? this.monthList[this.monthList.length-1] : this.monthList[selectIndex]
+            this.selectedMonth = selectIndex >= this.monthList.length ? this.monthList[this.monthList.length - 1] : this.monthList[selectIndex]
             break
           case 'day':
             this.dayMove = willMoved
-            this.selectedDay = selectIndex >= this.dayList.length ? this.dayList[this.dayList.length-1] : this.dayList[selectIndex]
+            this.selectedDay = selectIndex >= this.dayList.length ? this.dayList[this.dayList.length - 1] : this.dayList[selectIndex]
             break
         }
       },
@@ -206,33 +210,35 @@
         switch (draggingTarget) {
           case 'year':
             this.yearMove = willMoved
-            this.selectedYear = selectIndex >= this.yearList.length ? this.yearList[this.yearList.length-1] : this.yearList[selectIndex]
+            this.selectedYear = selectIndex >= this.yearList.length ? this.yearList[this.yearList.length - 1] : this.yearList[selectIndex]
             break
           case 'month':
             this.monthMove = willMoved
-            this.selectedMonth = selectIndex >= this.monthList.length ? this.monthList[this.monthList.length-1] : this.monthList[selectIndex]
+            this.selectedMonth = selectIndex >= this.monthList.length ? this.monthList[this.monthList.length - 1] : this.monthList[selectIndex]
             break
           case 'day':
             this.dayMove = willMoved
-            this.selectedDay = selectIndex >= this.dayList.length ? this.dayList[this.dayList.length-1] : this.dayList[selectIndex]
+            this.selectedDay = selectIndex >= this.dayList.length ? this.dayList[this.dayList.length - 1] : this.dayList[selectIndex]
             break
         }
       },
       getDraggingTarget(ele) {
-        if(!ele) { return '' }
-        if(ele === this.$yearArea) {
+        if (!ele) {
+          return ''
+        }
+        if (ele === this.$yearArea) {
           return 'year'
-        } else if(ele === this.$monthArea) {
+        } else if (ele === this.$monthArea) {
           return 'month'
-        } else if(ele === this.$dayArea) {
+        } else if (ele === this.$dayArea) {
           return 'day'
         } else {
           return this.getDraggingTarget(ele.parentElement)
         }
       },
       confirm () {
-        console.log('选择的生日是' + this.selectedYear + '.' + this.selectedMonth+ '.' + this.selectedDay)
-        this.$emit('on-picked', { year: this.selectedYear, month: this.selectedMonth, day: this.selectedDay })
+        console.log('选择的生日是' + this.selectedYear + '.' + this.selectedMonth + '.' + this.selectedDay)
+        this.$emit('on-picked', {year: this.selectedYear, month: this.selectedMonth, day: this.selectedDay})
         this.close()
       },
       close() {
@@ -243,8 +249,8 @@
   }
 </script>
 <style lang="less" scoped>
-  .date-picker{
-    &-bg{
+  .date-picker {
+    &-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -253,7 +259,7 @@
       background-color: rgba(0, 0, 0, .75);
       z-index: 11;
     }
-    &-area{
+    &-area {
       width: 6rem;
       height: 4.8rem;
       background-color: #fff;
@@ -266,7 +272,7 @@
       box-sizing: border-box;
       padding: 0.3rem;
     }
-    .close{
+    .close {
       width: 0.96rem;
       height: 0.96rem;
       position: absolute;
@@ -275,13 +281,13 @@
       z-index: 21;
       background: url("./close.png") no-repeat center/cover;
     }
-    .title{
+    .title {
       font-size: 0.42rem;
       font-weight: bolder;
       text-align: center;
       margin-bottom: 0.3rem;
     }
-    .sure{
+    .sure {
       font-size: 0.42rem;
       color: #fff;
       line-height: 0.72rem;
@@ -295,32 +301,32 @@
       left: 50%;
       transform: translate3d(-50%, 0, 0);
     }
-    .picker{
+    .picker {
       width: 100%;
       height: 2.4rem;
       background-color: #ccc;
       overflow: hidden;
     }
-    .picker-list{
+    .picker-list {
       width: 100%;
       height: 100%;
       overflow: hidden;
-      .area-list{
+      .area-list {
         width: 33.33%;
         height: 100%;
         float: left;
       }
       /*.time-list{*/
-        /*transition: transform 150ms linear 0s;*/
+      /*transition: transform 150ms linear 0s;*/
       /*}*/
-      .time-item{
+      .time-item {
         font-size: 0.48rem;
         text-align: center;
         height: 0.8rem;
         line-height: 0.8rem;
         color: #444;
         transform: scale3d(.83, .83, 1);
-        &.active{
+        &.active {
           color: #fd7107;
           transform: scale3d(1, 1, 1);
         }

@@ -54,10 +54,10 @@
         this.$confirm({
           content: '密码不正确，找回或重置密码？',
           confirmText: `<a href="#" style="display: block;">找回密码</a>`,
-          confirmCallback: function() {
+          confirmCallback: function () {
             console.log('确定')
           },
-          cancelCallback: function() {
+          cancelCallback: function () {
             console.log('取消')
           }
         })
@@ -112,6 +112,7 @@
     height: 36px;
     font-size: 0.28rem;
   }
+
   .popTest p {
     text-align: center;
   }
