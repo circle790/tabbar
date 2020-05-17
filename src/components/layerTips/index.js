@@ -21,7 +21,7 @@ let layerTips = {
         alert, notice, confirm
     },
     computed: {
-        isShow: {
+        isShow: { // 子组件中更新isShow时this.config.isShow也会更新
             get() {
                 return this.config.isShow
             },
@@ -29,15 +29,7 @@ let layerTips = {
                 this.config.isShow = val
             }
         },
-        type: {
-            get() {
-                return this.config.type
-            },
-            set(val) {
-                this.config.type = val
-            }
-        },
-        title: {
+        title: { // 子组件中更新title时this.config.title也会更新
             get() {
                 return this.config.title
             },
@@ -45,44 +37,12 @@ let layerTips = {
                 this.config.title = val
             }
         },
-        content: {
+        content: { // 子组件中更新content时this.config.content也会更新
             get() {
                 return this.config.content
             },
             set(val) {
                 this.config.content = val
-            }
-        },
-        confirmText: {
-            get() {
-                return this.config.confirmText
-            },
-            set(val) {
-                this.config.confirmText = val
-            }
-        },
-        cancelText: {
-            get() {
-                return this.config.cancelText
-            },
-            set(val) {
-                this.config.cancelText = val
-            }
-        },
-        confirmCallback: {
-            get() {
-                return this.config.confirmCallback
-            },
-            set(val) {
-                this.config.confirmCallback = val
-            }
-        },
-        cancelCallback: {
-            get() {
-                return this.config.cancelCallback
-            },
-            set(val) {
-                this.config.cancelCallback = val
             }
         }
     },

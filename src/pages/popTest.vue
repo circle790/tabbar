@@ -53,7 +53,13 @@
       showConfirm() {
         this.$confirm({
           content: '密码不正确，找回或重置密码？',
-          confirmText: `<a href="#" style="display: block;">找回密码</a>`
+          confirmText: `<a href="#" style="display: block;">找回密码</a>`,
+          confirmCallback: function() {
+            console.log('确定')
+          },
+          cancelCallback: function() {
+            console.log('取消')
+          }
         })
       },
       showNotice() {

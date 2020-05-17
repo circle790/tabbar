@@ -7,7 +7,7 @@ import router from './router'
 import './assets/less/app.less'
 
 import Validator from './assets/script/plugin'
-import toastPlugin from './components/ToastTwo'
+import toastPlugin from './components/Toast'
 import tipsPlugin from './components/layerTips'
 Vue.use(Validator)
 Vue.use(toastPlugin)
