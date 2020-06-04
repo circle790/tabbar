@@ -1,14 +1,14 @@
 <template>
   <div class="fullpage">
-    <swiper id="vertical" direction="vertical" width="100%" :height="screenH + 'px'">
+    <swiper id="vertical" direction="vertical" loop width="100%" :height="screenH + 'px'">
       <swiper-item class="swiper-box swiper-box-one">
-        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?bg=93c47d&text=page_one">
+        <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/93c47d/FFFFFF?text=page_one">
       </swiper-item>
       <swiper-item class="swiper-box swiper-box-two">
-        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?bg=ffe599&text=page_two">
+        <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/ffe599/FFFFFF?text=page_two">
       </swiper-item>
       <swiper-item class="swiper-box swiper-box-thr">
-        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?bg=9fc5e8&text=page_thr">
+        <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/9fc5e8/FFFFFF?text=page_thr">
       </swiper-item>
     </swiper>
   </div>

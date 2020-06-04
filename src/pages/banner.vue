@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <br>
-    <br>
-    <h2 style="text-align: center;">horizontal</h2>
-    <br>
-    <swiper id="horizontal" :list="bannerList" auto loop width="100%" height="180px" dots-position="center"></swiper>
-    <br>
-    <br>
-    <h2 style="text-align: center;">vertical</h2>
-    <br>
+    <!--<br>-->
+    <!--<br>-->
+    <!--<h2 style="text-align: center;">horizontal</h2>-->
+    <!--<br>-->
+    <!--<swiper id="horizontal" :list="bannerList" auto loop width="100%" height="180px" dots-position="center"></swiper>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--<h2 style="text-align: center;">vertical</h2>-->
+    <!--<br>-->
     <swiper id="vertical" direction="vertical" width="100%" :height="screenH + 'px'">
       <swiper-item class="swiper-img">
-        <img width="100%" height="100%" src="https://iph.href.lu/750x1334?bg=8e7cc3&text=banner04">
+        <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/8e7cc3/ffffff?Text=banner04">
       </swiper-item>
       <swiper-item class="swiper-desc">
         <div class="swiper-scroll">
@@ -142,13 +142,13 @@
         || document.body.clientHeight,
         bannerList: [{
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?bg=93c47d&text=banner01',
+          img: 'https://via.placeholder.com/750x1334/93c47d/FFFFFF?text=banner01',
         }, {
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?bg=ffe599&text=banner02'
+          img: 'https://via.placeholder.com/750x1334/ffe599/FFFFFF?text=banner02'
         }, {
           url: 'javascript:',
-          img: 'https://iph.href.lu/750x1334?bg=9fc5e8&text=banner03'
+          img: 'https://via.placeholder.com/750x1334/9fc5e8/FFFFFF?text=banner03'
         }]
       }
     },
@@ -166,6 +166,10 @@
         startScroll = this.scrollTop;
         touchStart = e.targetTouches[0].pageY;
       });
+      //  内部滑动时阻止外部swiper滑动
+      swiperSlides.on('touchmove', function (e) {
+        e.stopPropagation();
+      })
       swiperSlides.on('touchend', function (e) {
         touchCurrent = e.changedTouches[0].pageY;
         let touchesDiff = touchCurrent - touchStart;

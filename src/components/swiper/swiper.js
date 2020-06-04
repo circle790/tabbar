@@ -162,7 +162,6 @@ class Swiper {
       if (Math.abs(distance) > me._options.minMovingDistance && !noScroller) { // 达到动作边界值认为滑动
         me._setTransform(distance)
       }
-      e.preventDefault()
     }
 
     me.touchendHandler = (e) => {
@@ -177,12 +176,9 @@ class Swiper {
         noScroller = parseInt(Math.abs(distanceY/distanceX)) > 1  // 明确滑动动作方向
       }
       distance = me.getDistance(distance)
-      if (noScroller || (distance !== 0 && me._options.minMovingDistance && Math.abs(distance) < me._options.minMovingDistance)) {
-        return
-      }
-      if (distance > me._options.threshold) {
+      if (distance > me._options.threshold && !noScroller) {
         me.move(-1)
-      } else if (distance < -me._options.threshold) {
+      } else if (distance < -me._options.threshold && !noScroller) {
         me.move(1)
       } else {
         me.move(0)
