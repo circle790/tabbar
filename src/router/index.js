@@ -11,6 +11,8 @@ import formVerify from '../pages/formVerify'
 import demo from '../pages/demo'
 import pagination from '../pages/pagination'
 import fullpage from '../pages/fullpage'
+import echarts from '../pages/echarts'
+import picker from '../pages/smoothPicker'
 
 Vue.use(Router)
 export default new Router({
@@ -65,6 +67,16 @@ export default new Router({
       path: '/fullpage',
       name: 'fullpage',
       component: fullpage
+    },
+    {
+      path: '/echarts',
+      name: 'echarts',
+      component: echarts
+    },
+    {
+      path: '/picker',
+      name: 'picker',
+      component: picker
     }
   ]
 })
