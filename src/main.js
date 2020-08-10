@@ -16,6 +16,9 @@ Vue.use(tipsPlugin)
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: {App}
+  render: h => h(App),
+  /* 这句非常重要，否则预渲染将不会启动 */
+  mounted () {
+    document.dispatchEvent(new Event('render-event'))
+  }
 })

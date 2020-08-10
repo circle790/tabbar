@@ -36,7 +36,7 @@ export default (type = 'GET', url = '', data = {}, async = true) => {
           }
           resolve(obj);
         } else {
-          reject(requestObj);
+          reject(requestObj); 
         }
       }
     }
