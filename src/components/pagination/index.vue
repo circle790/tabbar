@@ -170,7 +170,7 @@
       display: inline;
       font-size: 14px;
       position: relative;
-      padding: 6px 12px;
+      padding: 6px 8px;
       line-height: 1.42857143;
       text-decoration: none;
       border: 1px solid #ccc;

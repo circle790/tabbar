@@ -75,9 +75,11 @@
       }
       const yearList = new Array(yearNow - startYear + 1).fill(startYear).map((v, i) => v + i)
       const selectedYear = this.defaultDate ? this.defaultDate.getFullYear() : yearList[1]
+      // 滑动年月后，可选月的范围发生变化
       maxMonth = selectedYear === yearNow ? monthNow : 12
       const monthList = new Array(maxMonth).fill(1).map((v, i) => v + i)
       const selectedMonth = this.defaultDate ? this.defaultDate.getMonth() + 1 : monthList[1]
+      // 滑动年月后，可选日的范围发生变化28,29,30,31
       const dayList = new Array(this.getMonthEndDay(selectedYear, selectedMonth)).fill(1).map((v, i) => v + i)
       const selectedDay = this.defaultDate ? this.defaultDate.getDate() : dayList[1]
       return {
@@ -211,10 +213,36 @@
           case 'year':
             this.yearMove = willMoved
             this.selectedYear = selectIndex >= this.yearList.length ? this.yearList[this.yearList.length - 1] : this.yearList[selectIndex]
+            // 检查年份是否影响月份变化
+            maxMonth = this.selectedYear === yearNow ? monthNow : 12
+            this.monthList = new Array(maxMonth).fill(1).map((v, i) => v + i)
+            let maxMonthMove = rem2px(this.monthList.length > 3 ? (this.monthList.length - 3) * this.itemHeight : 0) + itemHeightPx
+            if (Math.abs(this.monthMove) > maxMonthMove) {
+              this.monthMove = -maxMonthMove
+              this.selectedMonth = this.monthList[this.monthList.length - 1]
+            }
+            // 检查年份是否影响日期变化
+            let maxDayInYear = this.getMonthEndDay(this.selectedYear, this.selectedMonth);
+            maxDayInYear = this.selectedYear === yearNow && this.selectedMonth === monthNow ? now.getDate() : maxDayInYear
+            this.dayList = new Array(maxDayInYear).fill(1).map((v, i) => v + i)
+            let maxDayMoveInYear = rem2px(this.dayList.length > 3 ? (this.dayList.length - 3) * this.itemHeight : 0) + itemHeightPx
+            if (Math.abs(this.dayMove) > maxDayMoveInYear) {
+              this.dayMove = -maxDayMoveInYear
+              this.selectedDay = this.dayList[this.dayList.length - 1]
+            }
             break
           case 'month':
             this.monthMove = willMoved
             this.selectedMonth = selectIndex >= this.monthList.length ? this.monthList[this.monthList.length - 1] : this.monthList[selectIndex]
+            // 检查月份是否影响日期变化
+            let maxDayInMonth = this.getMonthEndDay(this.selectedYear, this.selectedMonth);
+            maxDayInMonth = this.selectedYear === yearNow && this.selectedMonth === monthNow ? now.getDate() : maxDayInMonth
+            this.dayList = new Array(maxDayInMonth).fill(1).map((v, i) => v + i)
+            let maxDayMoveInMonth = rem2px(this.dayList.length > 3 ? (this.dayList.length - 3) * this.itemHeight : 0) + itemHeightPx
+            if (Math.abs(this.dayMove) > maxDayMoveInMonth) {
+              this.dayMove = -maxDayMoveInMonth
+              this.selectedDay = this.dayList[this.dayList.length - 1]
+            }
             break
           case 'day':
             this.dayMove = willMoved
