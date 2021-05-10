@@ -10,6 +10,9 @@
       <swiper-item class="swiper-box swiper-box-thr">
         <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/9fc5e8/FFFFFF?text=page_thr">
       </swiper-item>
+      <swiper-item class="swiper-box swiper-box-four">
+        <img width="100%" height="100%" src="https://via.placeholder.com/750x1334/ffe599/FFFFFF?text=page_four">
+      </swiper-item>
     </swiper>
   </div>
 </template>

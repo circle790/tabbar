@@ -248,8 +248,9 @@ class Swiper {
     }
   }
 
-  _activate(index) {
+  _activate(_current) {
     let clazz = this._options.activeClass
+    let index = this._position.indexOf(_current)
     Array.prototype.forEach.call(this.$items, ($item, key) => {
       $item.classList.remove(clazz)
       this.$items[index].classList.add(clazz)
